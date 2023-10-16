@@ -8,10 +8,14 @@ import request from "../server";
 import ProductCard from "../components/card/ProductCard";
 import { getProduct } from "../redux/slices/productSlice";
 
+type RouteParams = {
+  id: string;
+}
+
 const ProductPage = () => {
-  const params = useParams();
-  console.log(params);
-  
+  const params = useParams<RouteParams>();
+  const { id } = params;
+
   const { product, loading } = useAppSelector((state) => state.product);
   const dispatch = useAppDispatch();
 
@@ -22,9 +26,9 @@ const ProductPage = () => {
 
 
   useEffect(() => {
-    dispatch(getProduct(params.id));
+    dispatch(getProduct(id));
     nameRef.current?.focus();
-  }, [dispatch,params.id]);
+  }, [dispatch,id]);
 
   const closeModal = () => {
     setIsModalOpen(false);
@@ -48,7 +52,7 @@ const ProductPage = () => {
         message.success("success edit!");
       }
       closeModal();
-      dispatch(getProduct(params.id));
+      dispatch(getProduct(id));
     } catch (error) {
       console.log(error);
     }
@@ -68,7 +72,7 @@ const ProductPage = () => {
   const deleteCategory = async (id: string) => {
     try{
       await request.delete(`category/${params.id}/product/${id}`);
-      dispatch(getProduct(params.id));
+      dispatch(getProduct(id));
       message.success("success delete!");
     }catch(err){
       console.log(err);

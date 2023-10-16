@@ -5,7 +5,8 @@ import { CategoryType } from "../../types/category";
 
 const { Meta } = Card;
 
-const CategoryCard = ({editCategory,deleteCategory, name, image, id }: CategoryType) => {
+const CategoryCard = ({editCategory, deleteCategory, name, image, id }: CategoryType) => {
+  
   return (
     <Card hoverable cover={<img height={200} src={image} alt={name} />}>
       <Meta title={name} style={{ marginBottom: "20px" }} />

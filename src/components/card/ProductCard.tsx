@@ -7,9 +7,9 @@ const ProductCard = ({editCategory, deleteCategory, description, price, discount
   return (
     <Card hoverable cover={<img height={200} src={image} alt={name} />}>
       <Meta title={name} style={{ marginBottom: "20px" }} />
-      <p>{description}</p>
-      <p>{price}</p>
-      <p>{discount}</p>
+      <p>description - {description}</p>
+      <p>price - {price}</p>
+      <p>discount - {discount}</p>
       <Button style={{marginRight:'10px'}} type='primary' onClick={() => editCategory(id)}>Edit</Button>
       <Button style={{marginRight:'10px'}} danger type='primary'  onClick={() => deleteCategory(id)}>Delete</Button>
     </Card>

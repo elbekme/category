@@ -76,7 +76,7 @@ const CategoriesPage = () => {
   return (
     <div style={{ paddingTop: "20px" }}>
       <Flex justify="space-between">
-        <h1>CategoriesPage {categories.length}</h1>
+        <h1>Categories {categories.length}</h1>
         {/* <input className="ant-input" type="text" ref={nameRef} /> */}
         <Button type='primary' onClick={showModal} className="primary">
           Add
